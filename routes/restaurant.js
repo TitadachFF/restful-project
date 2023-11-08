@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const productscontroller = require('../controller/controller');
+const Restaurantscontroller = require('../controller/controller');
 
-router.get("/" , productscontroller.getAllproduct);
-router.get("/:id" , productscontroller.getByIdproduct);
-router.post("/" , productscontroller.createproduct);
-router.delete("/:id" , productscontroller.deleteproduct);
-router.put("/:id" , productscontroller.updateproduct);
-
-
-
-
+router.get("/" , Restaurantscontroller.getAllRestaurant);
+router.get("/:id" , Restaurantscontroller.getByIdRestaurant);
+router.post("/" , Restaurantscontroller.createRestaurant);
+router.delete("/:id" , Restaurantscontroller.deleteRestaurant);
+router.put("/:id" , Restaurantscontroller.updateRestaurant);
 
 module.exports = router;

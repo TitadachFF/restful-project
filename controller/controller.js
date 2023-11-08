@@ -1,56 +1,56 @@
-const Product = require('../models/Product');
+const Restaurant = require('../models/Product');
 
-const productscontroller =  {
-    getAllproduct: async (req, res) =>{
+const Restaurantscontroller =  {
+    getAllRestaurant: async (req, res) =>{
         try {
-            const product = await Product.find();
-            res.json(product); 
+            const restaurant = await Restaurant.find();
+            res.json(restaurant); 
         } catch (error) {
             return(error);
         }
     },
 
-    getByIdproduct: async (req, res) =>{
-        const productID = req.params.id;
+    getByIdRestaurant: async (req, res) =>{
+        const restaurantID = req.params.id;
 
             try {
-                const product = await Product.findById(productID);
-                res.json(product);
+                const restaurant = await Restaurant.findById(restaurantID);
+                res.json(restaurant);
             } catch (error) {
                 return(error);
             }
     },
 
-    createproduct: async(req,res)=> {
+    createRestaurant: async(req,res)=> {
         const {name, type, price, image} = req.body;
-        const newProduct = new Product({name, type, price, image});
+        const newRestaurant = new Restaurant({name, type, price, image});
 
         try {
-            const product = await newProduct.save();
-            res.json(product);
+            const restaurant = await newRestaurant.save();
+            res.json(restaurant);
         } catch (error) {
             return(error);
         }
     },
 
-    deleteproduct: async(req, res) =>{
-        const productID = req.params.id;
+    deleteRestaurant: async(req, res) =>{
+        const restaurantID = req.params.id;
 
         try {
-            const product = await Product.findByIdAndDelete(productID);
+            const restaurant = await Restaurant.findByIdAndDelete(restaurantID);
             res.json({message:"Deleted"});
         } catch (error) {
             return(error);
         }
     },
 
-    updateproduct: async(req, res) =>{
-        const productID = req.params.id;
+    updateRestaurant: async(req, res) =>{
+        const restaurantID = req.params.id;
         const {name, type, price, image} = req.body;
 
         try {
-            const upproduct = await Product.findByIdAndUpdate(productID, {name, type, price, image});
-            res.json(upproduct);
+            const uprestaurant = await Restaurant.findByIdAndUpdate(restaurantID, {name, type, price, image});
+            res.json(uprestaurant);
         } catch (error) {
             return(error);
         }
@@ -59,4 +59,4 @@ const productscontroller =  {
 
 };
 
-module.exports = productscontroller;
+module.exports = Restaurantscontroller;

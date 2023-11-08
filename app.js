@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const products = require(('./routes/restaurant')
+const restaurants = require(('./routes/restaurant')
 )
 const mongoose = require('mongoose');
 
@@ -12,6 +12,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://hartza-13:hartza-13@cluster0.ps8tt3c.mongodb.net/')
         .then(() => console.log("con succ"))
         .catch((err) => console.log(err))
+
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -32,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', products);
+app.use('/restaurants', restaurants);
 
 
 // catch 404 and forward to error handler
