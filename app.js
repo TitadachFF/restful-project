@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const restaurants = require(('./routes/restaurant.routes'))
 const mongoose = require('mongoose');
+var app = express();
 
 
 
@@ -22,7 +23,12 @@ var usersRouter = require('./routes/users');
 
 
 
-var app = express();
+
+app.use(cors({
+  origin: 'http://localhost:5173/', // โดเมนหรือ URL ของ frontend ของคุณ
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // HTTP methods ที่ยอมรับ
+  credentials: true, // อนุญาตให้ส่งคุกกี้ระหว่างโดเมน
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
