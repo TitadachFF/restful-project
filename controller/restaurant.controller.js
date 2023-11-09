@@ -11,10 +11,10 @@ const Restaurantscontroller =  {
     },
 
     getByIdRestaurant: async (req, res) =>{
-        const restaurantID = req.params.id;
+        const restaurantId = req.params.id;
 
             try {
-                const restaurant = await Restaurant.findById(restaurantID);
+                const restaurant = await Restaurant.findById(restaurantId);
                 res.json(restaurant);
             } catch (error) {
                 return(error);
@@ -37,7 +37,7 @@ const Restaurantscontroller =  {
         const restaurantID = req.params.id;
 
         try {
-            const restaurant = await Restaurant.findByIdAndDelete(restaurantID);
+            const restaurant = await Restaurant.findByIdAndDelete(restaurantId);
             res.json({message:"Deleted"});
         } catch (error) {
             return(error);
@@ -49,7 +49,7 @@ const Restaurantscontroller =  {
         const {name, type, price, image} = req.body;
 
         try {
-            const uprestaurant = await Restaurant.findByIdAndUpdate(restaurantID, {name, type, price, image});
+            const uprestaurant = await Restaurant.findByIdAndUpdate(restaurantId, {name, type, price, image});
             res.json(uprestaurant);
         } catch (error) {
             return(error);
