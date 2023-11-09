@@ -26,7 +26,7 @@ var usersRouter = require('./routes/users');
 
 
 app.use(cors({
-  origin: 'http://localhost:5174/', // โดเมนหรือ URL ของ frontend ของคุณ
+  origin: 'http://localhost:5174', // โดเมนหรือ URL ของ frontend ของคุณ
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // HTTP methods ที่ยอมรับ
   credentials: true, // อนุญาตให้ส่งคุกกี้ระหว่างโดเมน
 }));
