@@ -8,4 +8,4 @@ const RestaurantSchema = mongoose.Schema({
     image: String
 })
 
-module.exports = mongoose.model('Retaurant', RestaurantSchema);
+module.exports = mongoose.model('Restaurant', RestaurantSchema);

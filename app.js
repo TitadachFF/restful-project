@@ -6,6 +6,7 @@ var logger = require('morgan');
 const restaurants = require(('./routes/restaurant.routes'))
 const mongoose = require('mongoose');
 var app = express();
+const cors = require('cors');
 
 
 
